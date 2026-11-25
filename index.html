@@ -30,21 +30,6 @@
   -->
   <script type="text/javascript" src="//cdn.evgnet.com/beacon/rlopes523029230/rboscardini/scripts/evergage.min.js"></script>
 
-  <!--
-    SITEMAP DA DEMO: define a zona de conteúdo que o template usa.
-    Zona de conteúdo precisa estar no sitemap (código), não só na interface.
-  -->
-  <script>
-    SalesforceInteractions.init().then(function () {
-      SalesforceInteractions.initSitemap({
-        global: {
-          contentZones: [
-            { name: 'pdp-compre-junto', selector: '#pdp-compre-junto' }
-          ]
-        }
-      });
-    });
-  </script>
 </head>
 <body>
   <h1>Produto Teste Ancora</h1>
@@ -55,6 +40,6 @@
   </picture>
 
   <!-- Zona de conteúdo: a campanha usa este seletor -->
-  <div id="pdp-compre-junto"></div>
+  <div id="pdp-compre-junto" style="min-height:60px;border:1px dashed #999"></div>
 </body>
 </html>
