@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Teste Compre Junto - Personalization</title>
+
+  <!-- Identificação da PDP (o template lê estes dados) -->
+  <meta property="product:retailer_item_id" content="TESTE001">
+  <meta property="og:image" content="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><rect width='120' height='120' fill='%23dddddd'/></svg>">
+
+  <!-- Camada de dados: o template lê o produto da âncora aqui -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'productDetail',
+      ecommerce: {
+        detail: {
+          products: [
+            { id: 'TESTE001', name: 'Produto Teste Ancora', price: '89,90' }
+          ]
+        }
+      }
+    });
+  </script>
+
+  <!--
+    BEACON DO DATASET DE TESTE (rboscardini), integração síncrona.
+    Usar só na demo. Não usar o snippet de produção do cliente.
+  -->
+  <script type="text/javascript" src="//cdn.evgnet.com/beacon/rlopes523029230/rboscardini/scripts/evergage.min.js"></script>
+
+  <!--
+    SITEMAP DA DEMO: define a zona de conteúdo que o template usa.
+    Zona de conteúdo precisa estar no sitemap (código), não só na interface.
+  -->
+  <script>
+    SalesforceInteractions.init().then(function () {
+      SalesforceInteractions.initSitemap({
+        global: {
+          contentZones: [
+            { name: 'pdp-compre-junto', selector: '#pdp-compre-junto' }
+          ]
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+  <h1>Produto Teste Ancora</h1>
+
+  <!-- Imagem da âncora -->
+  <picture>
+    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><rect width='120' height='120' fill='%23cccccc'/></svg>" alt="Produto Teste Ancora" width="120" height="120">
+  </picture>
+
+  <!-- Zona de conteúdo: a campanha usa este seletor -->
+  <div id="pdp-compre-junto"></div>
+</body>
+</html>
